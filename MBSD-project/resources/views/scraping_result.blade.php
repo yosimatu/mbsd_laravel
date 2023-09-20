@@ -3,3 +3,5 @@
 <p>{{ $scraping_url }}</p>
 
 {{$output[0]}};
+
+{{$output[1]}};
