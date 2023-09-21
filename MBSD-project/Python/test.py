@@ -1,4 +1,5 @@
 import sys
+import scrapy
 
 # コマンドライン引数を受け取る
 args = sys.argv

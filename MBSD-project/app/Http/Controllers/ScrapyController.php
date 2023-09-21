@@ -24,6 +24,7 @@ class ScrapyController extends Controller
         //ubuntu(ホスト)には存在しないがdockerコンテナ内では有効
         $cmd = 'python3 /var/www/html/Python/test.py';
         
+        
         //exec(コマンド,出力)
         exec($cmd, $output);
         dd($output);
@@ -34,10 +35,13 @@ class ScrapyController extends Controller
     //その後viewファイルに遷移
     public function scraping(Request $request) {
         $scraping_url = $request->URL;
+        
+        //$cmd = 'python3 /var/www/html/Python/test.py ' . $scraping_url;
 
-        $cmd = 'python3 /var/www/html/Python/test.py ' . $scraping_url;
+        // scrapyを呼び出すコマンド
+        $cmd = 'scrapy crawl laravel_scraping';
         exec($cmd, $output);
-        dd($output);
+        //dd($output);
         return view('scraping_result', compact('scraping_url', 'output'));
         
     }
